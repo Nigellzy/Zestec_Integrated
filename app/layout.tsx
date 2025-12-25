@@ -19,6 +19,9 @@ const openSans = Open_Sans({
 export const metadata: Metadata = {
   title: "Zestec Integrated",
   description: "Zestec Integrated Website",
+  icons: {
+    icon: '/imgs/zi_logo.png',
+  },
 };
 
 export default function RootLayout({
@@ -28,9 +31,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="icon" href="/imgs/zi_logo.png" type="image/x-icon" />
-      </head>
       <body
         className={`${montserrat.variable} ${openSans.variable} antialiased`}
       >
