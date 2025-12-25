@@ -1,26 +1,493 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Reset some default styles for consistency */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat), sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+h1,
+p {
+    margin: 0;
+    padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+h2 {
+    font-weight: bold;
+    /* Make the header bold */
+    position: relative;
+    /* Add a small margin below the header */
+    font-size: 40px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+    font-family: var(--font-open-sans), sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: #f0e0bb;
+    margin: 0;
+    /* Remove default margin */
+    opacity: 0;
+    animation: fade-in 2s forwards;
+}
+
+/* Header styles */
+header {
+    position: relative;
+    top: 0;
+    width: 100%;
+    background-color: #b87333;
+    /* Copper background color */
+    color: white;
+    /* White wording color */
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    grid-area: header;
+}
+
+/* Footer styles */
+footer {
+    background-color: #b87333;
+    /* Copper background color */
+    color: white;
+    /* White wording color */
+    text-align: center;
+    margin-top: auto;
+    padding: 0.1rem; 
+}
+
+/* Logo styles */
+.logo {
+    max-width: 300px;
+    /* Adjust the logo size as needed */
+    height: auto;
+
+}
+
+.icon {
+    max-width: 20px;
+    background-color: transparent;
+}
+
+.icon2 {
+    max-width: 80px;
+    background-color: transparent;
+}
+
+/* Text Box styles */
+.textbox {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem;
+    width: 100%;
+    /* Set the width to 100% to fill the entire available space */
+    margin: 0 auto;
+    /* Center the section on the page */
+}
+
+.container {
+    margin: auto;
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+.container2 {
+    margin: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: white;
+}
+
+.container-form {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    margin-top: 100px; /* Added margin to avoid overlap with header */
+}
+
+.container-icon {
+    text-align: center;
+    height: 100%;
+    padding: 10px
+}
+
+.container-icon:hover {
+    background-color: #b87333;
+    color: white;
+    border-radius: 10px;
+}
+
+.information {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin-left: 140px;
+}
+
+.information-landing {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+@media (max-width: 1000px) {
+    .information {
+        margin-left: 0;
+    }
+}
+
+.i-image {
+    width: 300px;
+    margin-left: 20px;
+    margin-bottom: 1rem;
+}
+
+.information p {
+    text-align: left;
+    /* Align the text to the left */
+    font-size: 18px;
+    /* Increase the text size */
+}
+
+/* Link styles */
+a {
+    color: #000;
+    /* Black color for links */
+    text-decoration: none;
+}
+
+aside {
+    left: 0;
+    display: block;
+}
+
+.sidebar {
+    width: 140px;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    left: 0;
+    background-color: #b87333;
+    color: #fff;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(0);
+    z-index: 999; /* Ensure it's below header but above content */
+}
+
+.sidebar.visible {
+    transform: translateX(0);
+}
+
+.sidebar.hidden {
+    transform: translateX(-100%);
+}
+
+@media (max-width: 1000px) {
+    .sidebar {
+        transform: translateX(-100%);
+        top: 50px;
+    }
+    
+    .sidebar.visible {
+        transform: translateX(0);
+    }
+
+    #sidebar-toggle {
+        transform: translateX(0);
+        display: block;
+        background-color: transparent;
+        outline: none;
+        border: none;
+    }
+}
+
+@media (min-width: 1001px) {
+    .sidebar {
+        display: block;
+        top: 0;
+    }
+
+    #sidebar-toggle {
+        display: none;
+    }
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 100%;
+}
+
+.sidebar ul li a {
+    display: block;
+    padding: 1rem 2rem;
+    margin: 0 0.25rem;
+    margin-bottom: 50px;
+    font-size: 15px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.sidebar ul li a:after {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 3px;
+    background-color: #ccc;
+    position: absolute;
+    left: 50%;
+    border-radius: 10px;
+}
+
+.sidebar ul li a:hover {
+    background-color: #f0e0bb;
+    color: #000;
+    border-radius: 10px;
+}
+
+.sidebar ul li:hover>ul {
+    display: block;
+}
+
+.row {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.main {
+    margin-left: 200px;
+    padding: 20px;
+}
+
+p {
+    margin-top: 25px;
+    margin-bottom: 25px
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.slideshow-container {
+    display: flex;
+    /* Use flexbox */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    width: 100%;
+    /* Full width of the parent */
+    height: 100%;
+    /* Full height of the parent (if needed) */
+}
+
+.mySlides {
+    display: none;
+    /* Hide all slides by default */
+    justify-content: center;
+    /* Center content within the slide */
+    align-items: center;
+    /* Center content vertically */
+    width: 100%;
+    /* Full width of the container */
+    height: 100%;
+    /* Full height of the container */
+
+}
+
+.mySlides.active {
+    display: block;
+}
+
+.mySlides img {
+    max-width: 100%;
+    /* Ensure the image is responsive */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    /* Remove inline spacing */
+    margin: 0 auto;
+    /* Center the image */
+}
+
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 5s;
+}
+
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+* {
+    box-sizing: border-box
+}
+
+/* Slideshow container (clickable) */
+.slideshow-container2 {
+    margin: auto;
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+}
+
+/* Hide the images by default */
+.mySlides1,
+.mySlides2 {
+    display: none;
+}
+
+.mySlides1.active {
+    display: block;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 15px;
+    color: blue;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: -40px;
+    border-radius: 3px 0 0 3px;
+    background-color: white;
+}
+
+.prev {
+    left: -20px;
+    background-color: white;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+    color: black;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Fading animation */
+.fade2 {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade2 {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* Style the button */
+#backToTop {
+    position: fixed;
+    /* Fixed position */
+    bottom: 20px;
+    /* Distance from the bottom */
+    right: 20px;
+    /* Distance from the right */
+    background-color: transparent;
+    /* Button color */
+    border: none;
+    /* No border */
+    border-radius: 10px;
+    /* Rounded corners */
+    padding: 10px 15px;
+    /* Padding */
+    cursor: pointer;
+    /* Pointer cursor on hover */
+    display: none;
+    /* Hidden by default */
+    z-index: 1000;
+    /* Ensure it's above other content */
+    transition: background-color 0.3s;
+    /* Smooth background color transition */
+}
+
+#backToTop:hover {
+    background-color: #333;
 }
