@@ -2,10 +2,20 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
+    const pathname = usePathname();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    // Helper to check if link is active (handles sub-paths and case-insensitivity)
+    const isActive = (path: string) => {
+        if (!pathname) return false;
+        const current = pathname.toLowerCase();
+        const target = path.toLowerCase();
+        return current === target || current.startsWith(`${target}/`);
+    };
     const [isVisible, setIsVisible] = useState(true);
     const [isAtTop, setIsAtTop] = useState(true);
     const lastScrollY = useRef(0);
@@ -48,6 +58,8 @@ const Navbar = () => {
                 isVisible ? 'translate-y-0' : '-translate-y-full'
             }`}
         >
+            
+
             <div className={`container mx-auto flex items-center transition-all duration-300 ${isAtTop ? 'justify-between' : 'justify-center'}`}>
                 {/* Logo */}
                 <div className="flex-shrink-0 transition-all duration-300">
@@ -62,7 +74,12 @@ const Navbar = () => {
                         <Link 
                             key={link.href} 
                             href={link.href} 
-                            className="!text-white hover:!text-[#f0e0bb] hover:scale-105 transition-all font-medium text-lg whitespace-nowrap"
+                            style={isActive(link.href) ? { backgroundColor: 'white', color: '#b87333', borderColor: 'white', fontWeight: 'bold' } : {}}
+                            className={`hover:scale-105 transition-all font-medium text-lg whitespace-nowrap px-4 py-2 rounded-md border-2 ${
+                                isActive(link.href)
+                                    ? 'shadow-md' 
+                                    : 'border-transparent !text-white hover:!text-[#f0e0bb]'
+                            }`}
                         >
                             {link.label}
                         </Link>
@@ -83,15 +100,19 @@ const Navbar = () => {
             <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen && isAtTop ? 'max-h-64 opacity-100 mt-4' : 'max-h-0 opacity-0'}`}>
                 <ul className="flex flex-col space-y-4 pb-4 text-center">
                     {navLinks.map((link) => (
-                        <li key={link.href}>
-                            <Link 
-                                href={link.href} 
-                                className="block !text-white hover:!text-[#f0e0bb] hover:bg-[#a0632b] py-2 rounded transition-colors"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                {link.label}
-                            </Link>
-                        </li>
+                        <Link 
+                            key={link.href} 
+                            href={link.href} 
+                            style={isActive(link.href) ? { backgroundColor: 'white', color: '#b87333', borderColor: 'white', fontWeight: 'bold' } : {}}
+                            className={`block py-2 rounded transition-colors border-2 ${
+                                isActive(link.href)
+                                    ? '' 
+                                    : 'border-transparent !text-white hover:!text-[#f0e0bb] hover:bg-[#a0632b]'
+                            }`}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {link.label}
+                        </Link>
                     ))}
                 </ul>
             </div>
