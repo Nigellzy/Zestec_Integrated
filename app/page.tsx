@@ -5,7 +5,7 @@ import Slideshow from '../components/Slideshow';
 
 export default async function Home() {
   // Simulate loading delay to show transition
-  await new Promise((resolve) => setTimeout(resolve, 800));
+  // await new Promise((resolve) => setTimeout(resolve, 800));
 
   const productLinks = [
     { text: "Testing & measuring equipment for trees and wooden structures", href: "/overview_iml" },

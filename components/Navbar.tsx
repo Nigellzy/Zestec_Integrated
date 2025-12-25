@@ -63,7 +63,8 @@ const Navbar = () => {
             <div className={`container mx-auto flex items-center transition-all duration-300 ${isAtTop ? 'justify-between' : 'justify-center'}`}>
                 {/* Logo */}
                 <div className="flex-shrink-0 transition-all duration-300">
-                    <Link href="/">
+                    <Link href="/" className="flex items-center gap-2">
+                        <img src="/imgs/zi_logo.jpg" alt="logo" className="h-12 w-auto object-contain rounded-full" />
                         <img src="/imgs/zesteclogo.png" alt="Zestec Integrated" className="h-12 w-auto object-contain" />
                     </Link>
                 </div>

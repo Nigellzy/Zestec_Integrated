@@ -3,8 +3,6 @@ import Slideshow2 from '../../../components/Slideshow2';
 import { ExternalLink } from 'lucide-react';
 
 export default async function OverviewIML() {
-    // Simulate loading delay to show transition
-    await new Promise((resolve) => setTimeout(resolve, 800));
 
     const slideshow1Images = [
         "/imgs/pd_bridge.jpg",

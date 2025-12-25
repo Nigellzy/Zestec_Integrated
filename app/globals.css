@@ -27,8 +27,6 @@ body {
     background-color: #f0e0bb;
     margin: 0;
     /* Remove default margin */
-    opacity: 0;
-    animation: fade-in 2s forwards;
 }
 
 /* Header styles */

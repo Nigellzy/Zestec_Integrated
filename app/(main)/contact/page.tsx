@@ -1,8 +1,6 @@
 import React from 'react';
 
 export default async function Contact() {
-  // Simulate loading delay to show transition
-  await new Promise((resolve) => setTimeout(resolve, 800));
 
   return (
     <main className="min-h-screen bg-gray-50">
