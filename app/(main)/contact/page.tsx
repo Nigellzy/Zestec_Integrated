@@ -5,7 +5,7 @@ export default async function Contact() {
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <div className="bg-[#b87333] text-white py-16 px-4">
+      <div className="bg-[#b87333] text-white py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
           <h1 className="text-3xl md:text-5xl font-bold mb-4">Contact Us</h1>
           <div className="w-24 h-1 bg-[#f0e0bb] mx-auto rounded-full"></div>
