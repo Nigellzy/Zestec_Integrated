@@ -53,7 +53,7 @@ export default async function OverviewFC() {
                         </div>
                     </div>
 
-                    <div className="bg-white p-4 rounded-2xl shadow-xl transform hover:scale-[1.02] transition-transform duration-300">
+                    <div className="bg-white p-4 rounded-2xl shadow-xl transform transition-transform duration-300">
                         <img
                             src="/imgs/cableapplications.jpg"
                             alt="Cable Applications"
@@ -67,10 +67,10 @@ export default async function OverviewFC() {
                 <section>
                     <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
                         <div className="group relative overflow-hidden rounded-xl shadow-lg">
-                            <img src="/imgs/fc.jpg" alt="Flexible Cable Type 1" className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                            <img src="/imgs/fc.jpg" alt="Flexible Cable Type 1" className="w-full h-64 object-cover transform transition-transform duration-500" />
                         </div>
                         <div className="group relative overflow-hidden rounded-xl shadow-lg">
-                            <img src="/imgs/fc2.jpg" alt="Flexible Cable Type 2" className="w-full h-64 object-cover transform group-hover:scale-105 transition-transform duration-500" />
+                            <img src="/imgs/fc2.jpg" alt="Flexible Cable Type 2" className="w-full h-64 object-cover transform transition-transform duration-500" />
                         </div>
                     </div>
                 </section>

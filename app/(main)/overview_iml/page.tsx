@@ -1,6 +1,7 @@
 import React from 'react';
 import Slideshow2 from '../../../components/Slideshow2';
 import { ExternalLink } from 'lucide-react';
+import { degrees } from 'framer-motion';
 
 export default async function OverviewIML() {
 
@@ -14,12 +15,13 @@ export default async function OverviewIML() {
     ];
 
     const slideshow2Images = [
-        "/imgs/screenprotector.png",
-        "/imgs/telescope.png",
-        "/imgs/needle.png",
-        "/imgs/adaptor1.png",
-        "/imgs/adaptor2.png",
-        "/imgs/adaptor3.png"
+        { src: "/imgs/screenprotector.png", name: "PD Series Screen Protector" },
+        { src: "/imgs/telescope.png", name: "PD Series Telescope" },
+        { src: "/imgs/needle.png", name: "PD Standard Drill Needles Click Type" },
+        { src: "/imgs/adaptor1.png", name: "45" + "\u00B0 Adaptor"},
+        { src: "/imgs/adaptor2.png", name: "Brass Adaptor" },
+        { src: "/imgs/adaptor3.png", name: "Front Adaptor 25/45/60 mm" },
+        { src: "/imgs/iml_pd_bag.jpg", name: "PD 300/400/500 Carrying Sling Bag" },
     ];
 
     return (
@@ -44,9 +46,9 @@ export default async function OverviewIML() {
                             structures. The IML-RESI PD comes with full electronic data capture, analysis software and is
                             user-independent. Being battery operated, the IML-RESI PD can be used to test branches and roots.
                         </p>
-                        <a 
-                            href="https://www.iml-service.com/about-us/" 
-                            target="_blank" 
+                        <a
+                            href="https://www.iml-service.com/about-us/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center text-[#b87333] font-semibold hover:underline group"
                         >
@@ -61,7 +63,7 @@ export default async function OverviewIML() {
                         </div>
                     </div>
 
-                    <div className="bg-white p-6 rounded-2xl shadow-xl">
+                    <div className="bg-white p-2 rounded-2xl shadow-xl">
                         <Slideshow2 images={slideshow1Images} />
                         <p className="text-center text-gray-500 text-sm mt-4 italic">IML-RESI PD in action</p>
                     </div>
@@ -88,15 +90,53 @@ export default async function OverviewIML() {
                             different levels, the Pro software allows 3D tomograms to be generated for
                             easier and more detail analysis.
                         </p>
-                        <a 
-                            href="https://www.iml-electronic.com/" 
-                            target="_blank" 
+                        <a
+                            href="https://www.iml-electronic.com/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center text-[#b87333] font-semibold hover:underline group"
                         >
                             IML Electronic - With passion and precision
                             <ExternalLink className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                         </a>
+                    </div>
+
+
+                </section>
+
+                {/* Section for Sonic Tomographs */}
+                <section className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                    <div className="text-center mb-8">
+                        <h2 className="text-3xl font-bold text-[#b87333] mb-4">PiCUS Sonic Tomograph</h2>
+                        <p className="text-gray-600">
+                            With the PiCUS Sonic Tomograph 3, you can detect damage early and graphically view the full extent of a defect.
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="group relative overflow-hidden rounded-xl shadow-lg">
+                            <img src="/imgs/iml_picus_sonic_tomograph.jpg" alt="PiCUS Sonic Tomograph Device" className="w-full h-64 object-contain bg-white transform group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="group relative overflow-hidden rounded-xl shadow-lg">
+                            <img src="/imgs/iml_picus_sonic_tomograph_messergebnis.jpg" alt="PiCUS Sonic Tomograph Result" className="w-full h-64 object-contain bg-white transform group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                    </div>
+                </section>
+
+                {/* Section for Treetronic Products */}
+                <section className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+                    <div className="text-center mb-8">
+                        <h2 className="text-3xl font-bold text-[#b87333] mb-4">PiCUS TreeTronic 3</h2>
+                        <p className="text-gray-600">
+                            The PiCUS TreeTronic 3 detects incipient rot and allows predictions about the future development of wood damage.
+                        </p>
+                    </div>
+                    <div className="grid md:grid-cols-2 gap-8 items-center">
+                        <div className="group relative overflow-hidden rounded-xl shadow-lg">
+                            <img src="/imgs/iml_picus_treetronic.jpg" alt="PiCUS TreeTronic Device" className="w-full h-64 object-contain bg-white transform group-hover:scale-105 transition-transform duration-500" />
+                        </div>
+                        <div className="group relative overflow-hidden rounded-xl shadow-lg">
+                            <img src="/imgs/iml_picus_treetronic_baum_an_schule.jpg" alt="PiCUS TreeTronic Usage" className="w-full h-64 object-contain bg-white transform group-hover:scale-105 transition-transform duration-500" />
+                        </div>
                     </div>
                 </section>
 
@@ -106,7 +146,7 @@ export default async function OverviewIML() {
                         <h2 className="text-3xl font-bold text-[#b87333] mb-2">Accessories</h2>
                         <p className="text-gray-600">Essential add-ons for your equipment</p>
                     </div>
-                    
+
                     <div className="max-w-2xl mx-auto">
                         <Slideshow2 images={slideshow2Images} />
                     </div>

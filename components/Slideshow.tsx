@@ -1,11 +1,12 @@
 "use client";
 
+import { LogsIcon } from 'lucide-react';
 import React, { useState, useEffect } from 'react';
 
 const Slideshow = () => {
     const [slideIndex, setSlideIndex] = useState(0);
 
-    const logo = ["/imgs/zi_logo.png", "/imgs/zesteclogo.png"]
+    const logo = "imgs/zesteclogo2025-transparent.png"
 
     const slides = [
         "/imgs/MD300.jpg",
@@ -46,15 +47,11 @@ const Slideshow = () => {
                     <div className="bg-white/90 backdrop-blur-sm p-6 md:p-10 rounded-3xl shadow-2xl border border-white/20 max-w-4xl mx-auto">
                         <div className="flex flex-row items-center justify-center gap-8 mb-6">
                             <img
-                                src={logo[0]}
+                                src={logo}
                                 alt="ZI Logo"
                                 className="h-20 md:h-32 w-auto object-contain"
                             />
-                            <img
-                                src={logo[1]}
-                                alt="Zestec Integrated"
-                                className="h-20 md:h-32 w-auto object-contain"
-                            />
+                            
                         </div>
 
                         <div className="flex flex-row items-center justify-center gap-8 mb-6">
